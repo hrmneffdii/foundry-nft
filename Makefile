@@ -48,6 +48,15 @@ mint:
 deployMood:
 	@forge script script/DeployMoodNft.s.sol:DeployMoodNft $(NETWORK_ARGS)
 
+mintMood:
+	@cast send 0x5FbDB2315678afecb367f032d93F642f64180aa3 "mintNft()" --private-key $(ANVIL_PRIVATE_KEY) --rpc-url $(ANVIL_URL)
+
+mintMoodFlip:
+	@cast send 0x5FbDB2315678afecb367f032d93F642f64180aa3 "flipMood(uint256 tokenId)" 0 --private-key $(ANVIL_PRIVATE_KEY) --rpc-url $(ANVIL_URL)
+
+mintMoodTokenURI:
+	@cast send 0x5FbDB2315678afecb367f032d93F642f64180aa3 "tokenURI(uint256 tokenId)" 0 --private-key $(ANVIL_PRIVATE_KEY) --rpc-url $(ANVIL_URL)
+
 mintMoodNft:
 	@forge script script/Interactions.s.sol:MintMoodNft $(NETWORK_ARGS)
 
